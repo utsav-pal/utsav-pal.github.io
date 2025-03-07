@@ -13,7 +13,7 @@
 </head>
 <body class="dark-mode">
     <header class="text-center p-6 bg-gray-800 shadow-lg flex justify-between items-center">
-        <h1 class="text-4xl font-bold">Utsav Pal - Python Developer</h1>
+        <h1 class="text-4xl font-bold mx-auto">Utsav Pal</h1>
         <button id="modeToggle" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
             Toggle Mode
         </button>
@@ -71,11 +71,27 @@
     <script>
         function toggleMode() {
             const body = document.body;
-            body.classList.toggle('light-mode');
-            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            
+            if (isDark) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
         }
         
         document.getElementById('modeToggle').addEventListener('click', toggleMode);
+        
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.add(savedTheme === 'dark' ? 'dark-mode' : 'light-mode');
+            }
+        }
     </script>
 </body>
 </html>
