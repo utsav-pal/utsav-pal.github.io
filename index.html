@@ -6,40 +6,41 @@
     <title>Utsav Pal - Developer Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { font-family: 'Arial', sans-serif; }
+        body { font-family: 'Arial', sans-serif; transition: background 0.5s ease, color 0.5s ease; }
+        .light-mode { background: white; color: black; }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
-    <header class="text-center p-6 bg-gray-800 shadow-lg">
+    <header class="text-center p-6 bg-gray-800 shadow-lg flex justify-between items-center">
         <h1 class="text-4xl font-bold">Utsav Pal - Python Developer</h1>
-        <nav class="mt-4">
-            <a href="#projects" class="text-lg mx-3 hover:text-blue-400">Projects</a>
-            <a href="#skills" class="text-lg mx-3 hover:text-blue-400">Skills</a>
-            <a href="#contact" class="text-lg mx-3 hover:text-blue-400">Contact</a>
-        </nav>
+        <button onclick="toggleMode()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+            Toggle Mode
+        </button>
     </header>
     
-    <section id="about" class="text-center py-12">
+    <section id="about" class="text-center py-12 max-w-4xl mx-auto">
         <h2 class="text-3xl font-semibold">About Me</h2>
-        <p class="text-lg mt-4 max-w-2xl mx-auto">Hi, I'm Utsav Pal, a Python Developer passionate about building scalable applications, AI models, and automation solutions.</p>
+        <p class="text-lg mt-4">Hi, I'm <strong>Utsav Pal</strong>, a passionate Python Developer specializing in AI, Machine Learning, and Full Stack Development.</p>
+        <p class="text-lg mt-4">I am currently pursuing my <strong>B.Tech in Computer Science</strong> at VIT Bhopal University (CGPA: 8.33). With a strong foundation in <strong>Data Structures, Algorithms, and Database Systems</strong>, I love solving complex problems and building scalable solutions.</p>
+        <p class="text-lg mt-4">I have worked extensively with <strong>Python, NLP, TensorFlow, OpenCV, and Flask</strong>. Whether it's developing AI models, recommendation systems, or full-stack applications, I always strive for efficiency and innovation.</p>
     </section>
     
     <section id="projects" class="py-12">
         <h2 class="text-center text-3xl font-semibold">Projects</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 max-w-5xl mx-auto">
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400 transition-all">
                 <h3 class="text-xl font-bold">Advanced Ecommerce Recommendation System</h3>
                 <p class="mt-2">Engineered a content-based recommendation system with 95% accuracy and API integration.</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400 transition-all">
                 <h3 class="text-xl font-bold">Handwritten Digit Recognition</h3>
                 <p class="mt-2">Achieved 95% recognition accuracy using KNN and TensorFlow.</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400 transition-all">
                 <h3 class="text-xl font-bold">Predictive Health Diagnosis System</h3>
                 <p class="mt-2">Developed an ML model predicting pollution levels with 90% accuracy.</p>
             </div>
-            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400">
+            <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-blue-400 transition-all">
                 <h3 class="text-xl font-bold">Face Recognition System</h3>
                 <p class="mt-2">Implemented KNN-based face recognition with OpenCV, achieving error rates below 3%.</p>
             </div>
@@ -48,7 +49,7 @@
     
     <section id="skills" class="text-center py-12">
         <h2 class="text-3xl font-semibold">Skills</h2>
-        <ul class="flex justify-center space-x-6 mt-4 text-lg">
+        <ul class="flex flex-wrap justify-center space-x-6 mt-4 text-lg">
             <li class="bg-gray-700 px-4 py-2 rounded-lg">Python</li>
             <li class="bg-gray-700 px-4 py-2 rounded-lg">Java, C++</li>
             <li class="bg-gray-700 px-4 py-2 rounded-lg">HTML, CSS, JavaScript</li>
@@ -61,9 +62,15 @@
     <section id="contact" class="text-center py-12">
         <h2 class="text-3xl font-semibold">Contact</h2>
         <p class="text-lg mt-4">Phone: +91 8975599745</p>
-        <p class="text-lg">Email: <a href="mailto:utsavpal2004l@gmail.com" class="text-blue-400 hover:underline">utsavpal2004@gmail.com</a></p>
+        <p class="text-lg">Email: <a href="mailto:utsavpal2004l@gmail.com" class="text-blue-400 hover:underline">utsavpal2004l@gmail.com</a></p>
         <p class="text-lg">LinkedIn: <a href="#" class="text-blue-400 hover:underline">LinkedIn Profile</a></p>
         <p class="text-lg">GitHub: <a href="#" class="text-blue-400 hover:underline">GitHub Profile</a></p>
     </section>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle('light-mode');
+        }
+    </script>
 </body>
 </html>
