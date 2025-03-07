@@ -8,12 +8,13 @@
     <style>
         body { font-family: 'Arial', sans-serif; transition: background 0.5s ease, color 0.5s ease; }
         .light-mode { background: white; color: black; }
+        .dark-mode { background: #1a202c; color: white; }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+<body class="dark-mode">
     <header class="text-center p-6 bg-gray-800 shadow-lg flex justify-between items-center">
         <h1 class="text-4xl font-bold">Utsav Pal - Python Developer</h1>
-        <button onclick="toggleMode()" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
+        <button id="modeToggle" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all">
             Toggle Mode
         </button>
     </header>
@@ -69,8 +70,12 @@
 
     <script>
         function toggleMode() {
-            document.body.classList.toggle('light-mode');
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
         }
+        
+        document.getElementById('modeToggle').addEventListener('click', toggleMode);
     </script>
 </body>
 </html>
