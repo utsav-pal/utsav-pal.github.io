@@ -15,9 +15,9 @@ Welcome to my GitHub profile! I'm a passionate developer with a keen interest in
 - **Frameworks & Libraries:** React, Node.js
 - **Tools & Platforms:** Git, GitHub, Docker
 - **Data & AI:** Pandas, NumPy, Scikit-learn
-
+<!--
 ## 📈 GitHub Stats
-
+-->
 ![Utsav's GitHub Stats](https://github-readme-stats.vercel.app/api?username=utsav-pal&show_icons=true&theme=radical)
 
 ## 📫 Let's Connect
