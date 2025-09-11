@@ -88,7 +88,7 @@ html {
 }
 
 /* Blur the main content when mobile menu is open */
-body.mobile-menu-open > *:not(nav) {
+body.mobile-menu-open>*:not(nav) {
     filter: blur(8px);
     -webkit-filter: blur(8px);
     transition: filter 0.3s ease;
@@ -144,7 +144,7 @@ header {
 }
 
 nav a {
-    color: white;
+    color: black;
     margin: 10px;
     text-decoration: none;
 }
