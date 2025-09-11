@@ -73,9 +73,9 @@ html {
 .mobile-menu-backdrop {
     position: fixed;
     inset: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     z-index: 9998;
     opacity: 0;
     visibility: hidden;
@@ -87,7 +87,24 @@ html {
     visibility: visible;
 }
 
+/* Blur the main content when mobile menu is open */
+body.mobile-menu-open > *:not(nav) {
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    transition: filter 0.3s ease;
+}
+
+body.mobile-menu-open nav {
+    filter: none;
+    -webkit-filter: none;
+}
+
 /* Prevent body scroll when mobile menu is open */
+body.mobile-menu-open {
+    overflow: hidden;
+}
+
+html.mobile-menu-open,
 body.mobile-menu-open {
     overflow: hidden;
 }

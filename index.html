@@ -664,6 +664,7 @@
                 
                 mobileMenu.classList.add('open');
                 mobileMenuBackdrop.classList.add('open');
+                document.documentElement.classList.add('mobile-menu-open');
                 document.body.classList.add('mobile-menu-open');
             }
 
@@ -673,6 +674,7 @@
                 
                 mobileMenu.classList.remove('open');
                 mobileMenuBackdrop.classList.remove('open');
+                document.documentElement.classList.remove('mobile-menu-open');
                 document.body.classList.remove('mobile-menu-open');
             }
         }
