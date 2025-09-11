@@ -22,7 +22,7 @@ Welcome to my GitHub profile! I'm a passionate developer with a keen interest in
 
 ## 📫 Let's Connect
 
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
+- 📧 Email: [utsavpal2004@example.com](mailto:utsavpal2004@example.com)
 - 💼 LinkedIn: [linkedin.com/in/utsav-pal](https://linkedin.com/in/utsav-pal)
 
 Feel free to explore my repositories and connect with me for collaborations or discussions!
