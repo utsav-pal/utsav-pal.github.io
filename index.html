@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utsav Pal - Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 w-full z-50 nav-sticky border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Name -->
+                <div class="flex-shrink-0">
+                    <h1
+                        class="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                        Utsav Pal
+                    </h1>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">About</a>
+                        <a href="#education"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">Education</a>
+                        <a href="#projects"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">Projects</a>
+                        <a href="#certificates"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">Certificates</a>
+                        <a href="#skills"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">Skills</a>
+                        <a href="#contact"
+                            class="text-gray-900 dark:text-white hover:text-blue-500 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Theme Toggle & Mobile Menu Button -->
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <div class="flex items-center space-x-2">
+                        <button id="themeToggle"
+                            class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                            <svg id="sunIcon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                            <svg id="moonIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                            </svg>
+                            <svg id="systemIcon" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M3 5a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2h-2.22l.123.489.804.804A1 1 0 0113 18H7a1 1 0 01-.707-1.707l.804-.804L7.22 15H5a2 2 0 01-2-2V5zm5.771 7H5V5h10v7H8.771z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <span id="themeLabel" class="text-sm text-gray-600 dark:text-gray-400">Dark</span>
+                    </div>
+
+                    <!-- Mobile menu button -->
+                    <div class="md:hidden">
+                        <button id="mobileMenuBtn" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Backdrop -->
+        <div id="mobileMenuBackdrop" class="mobile-menu-backdrop"></div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="md:hidden mobile-menu fixed inset-y-0 left-0 w-64">
+            <div class="p-6 h-full">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-2xl font-bold text-gray-900">Navigation</h2>
+                    <button id="closeMobileMenu"
+                        class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="space-y-2">
+                    <a href="#about"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">About</a>
+                    <a href="#education"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">Education</a>
+                    <a href="#projects"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">Projects</a>
+                    <a href="#certificates"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">Certificates</a>
+                    <a href="#skills"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">Skills</a>
+                    <a href="#contact"
+                        class="block py-3 px-4 rounded-lg text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 transition-colors font-semibold text-lg ">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content with top margin for fixed nav -->
+    <main class="pt-16">
+
+        <!-- Hero Section -->
+        <section class="theme-secondary py-20">
+            <div class="max-w-4xl mx-auto text-center px-4">
+                <h1
+                    class="text-5xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
+                    Utsav Pal
+                </h1>
+                <p class="text-xl text-secondary mb-8">Python Developer | AI & Machine Learning Enthusiast | Full Stack
+                    Developer</p>
+                <div class="flex justify-center space-x-4">
+                    <a href="Utsav%20Pal-Resume.pdf" download
+                        class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg transition-colors font-medium">
+                        Download Resume
+                    </a>
+                    <a href="#contact"
+                        class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-3 rounded-lg transition-colors font-medium">
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg mb-4">
+                            Hi, I'm <strong>Utsav Pal</strong>, a passionate Python Developer specializing in AI,
+                            Machine Learning, and Full Stack Development.
+                        </p>
+                        <p class="text-lg mb-4">
+                            I am currently pursuing my <strong>B.Tech in Computer Science</strong> at VIT Bhopal
+                            University (CGPA: 8.5). With a strong foundation in <strong>Data Structures, Algorithms, and
+                                Database Systems</strong>, I love solving complex problems and building scalable
+                            solutions.
+                        </p>
+                        <p class="text-lg">
+                            I have worked extensively with <strong>Python, NLP, TensorFlow, OpenCV, and Flask</strong>.
+                            Whether it's developing AI models, recommendation systems, or full-stack applications, I
+                            always strive for efficiency and innovation.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="theme-card p-6 rounded-lg">
+                            <h3 class="text-xl font-semibold mb-4">Quick Stats</h3>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>CGPA:</span>
+                                    <span class="font-semibold">8.5/10</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Projects:</span>
+                                    <span class="font-semibold">4+</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Focus:</span>
+                                    <span class="font-semibold">AI/ML</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 theme-secondary">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
+                <div class="theme-card p-8 rounded-lg">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.75 2.524z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-grow">
+                            <h3 class="text-xl font-bold mb-2">B.Tech in Computer Science</h3>
+                            <p class="text-blue-500 font-medium mb-2">VIT Bhopal University</p>
+                            <p class="text-secondary mb-2">2021 - Present</p>
+                            <p class="text-lg font-semibold mb-3">CGPA: 8.5/10</p>
+                            <p class="text-secondary">
+                                Specialized in Data Structures, Algorithms, and Database Systems. Strong foundation in
+                                computer science fundamentals with focus on AI and Machine Learning applications.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    <div class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Advanced Ecommerce Recommendation System</h3>
+                                <p class="text-secondary mb-4">Engineered a content-based recommendation system with 95%
+                                    accuracy and API integration.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Python</span>
+                                    <span
+                                        class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">ML</span>
+                                    <span
+                                        class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">API</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Handwritten Digit Recognition</h3>
+                                <p class="text-secondary mb-4">Achieved 95% recognition accuracy using KNN and
+                                    TensorFlow for digit classification.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">TensorFlow</span>
+                                    <span
+                                        class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">KNN</span>
+                                    <span
+                                        class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">OpenCV</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <a href="https://teladoc.onrender.com/home" target="_blank" rel="noopener noreferrer"
+                                    class="block">
+                                    <h3 class="text-xl font-bold mb-2 hover:text-blue-500 transition-colors">Predictive
+                                        Health Diagnosis System</h3>
+                                    <p class="text-secondary mb-4">Developed an ML model predicting pollution levels
+                                        with 90% accuracy for health monitoring.</p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span
+                                            class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full text-sm">Machine
+                                            Learning</span>
+                                        <span
+                                            class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">Health
+                                            Tech</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="w-12 h-12 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-2">Face Recognition System</h3>
+                                <p class="text-secondary mb-4">Implemented KNN-based face recognition with OpenCV,
+                                    achieving error rates below 3%.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 rounded-full text-sm">OpenCV</span>
+                                    <span
+                                        class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-full text-sm">KNN</span>
+                                    <span
+                                        class="px-3 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded-full text-sm">Computer
+                                        Vision</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-16 theme-secondary">
+            <div class="max-w-4xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Certificates & Achievements</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="theme-card p-6 rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Bits and Byits</h3>
+                                <p class="text-secondary mb-2">offer by google for computer Network</p>
+                                <p class="text-sm text-blue-500">Coursera • 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Python Programming</h3>
+                                <p class="text-secondary mb-2">Advanced Python development and frameworks</p>
+                                <p class="text-sm text-blue-500">Python Institute • 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Data Science Fundamentals</h3>
+                                <p class="text-secondary mb-2">Statistics, analysis, and visualization</p>
+                                <p class="text-sm text-blue-500">IBM • 2022</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="theme-card p-6 rounded-lg">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z"
+                                            clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">Web Development</h3>
+                                <p class="text-secondary mb-2">Full-stack development with modern frameworks</p>
+                                <p class="text-sm text-blue-500">FreeCodeCamp • 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-16">
+            <div class="max-w-6xl mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12">Skills & Technologies</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="theme-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Programming Languages</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span>Python</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>Java</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span>C++</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                </div>
+                            </div>
+                            <!-- <div class="flex items-center justify-between">
+                                <span>JavaScript</span>
+                                <div class="flex space-x-1">
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                    <div class="w-3 h-3 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & Libraries -->
+                    <div class="theme-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Frameworks & Libraries</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Django</span>
+                            <span
+                                class="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Flask</span>
+                            <span
+                                class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">TensorFlow</span>
+                            <span
+                                class="px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">OpenCV</span>
+                            <span
+                                class="px-3 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-full text-sm">NumPy</span>
+                            <span
+                                class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-full text-sm">Pandas</span>
+                            <span
+                                class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 rounded-full text-sm">Scikit-learn</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Technologies -->
+                    <div class="theme-card p-6 rounded-lg">
+                        <h3 class="text-xl font-bold mb-4 text-center">Tools & Technologies</h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">Git</span>
+                            <span
+                                class="px-3 py-1 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-full text-sm">MySQL</span>
+                            <span
+                                class="px-3 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-full text-sm">MongoDB</span>
+                            <span
+                                class="px-3 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 rounded-full text-sm">REST
+                                APIs</span>
+                            <span
+                                class="px-3 py-1 bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200 rounded-full text-sm">Linux</span>
+                            <span
+                                class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 rounded-full text-sm">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Specializations -->
+                <div class="mt-12 text-center">
+                    <h3 class="text-2xl font-bold mb-6">Specializations</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="theme-card p-6 rounded-lg">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Machine Learning</h4>
+                            <p class="text-secondary text-sm">Developing intelligent systems and predictive models</p>
+                        </div>
+                        <div class="theme-card p-6 rounded-lg">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-r from-green-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Full Stack Development</h4>
+                            <p class="text-secondary text-sm">Building complete web applications from frontend to
+                                backend</p>
+                        </div>
+                        <div class="theme-card p-6 rounded-lg">
+                            <div
+                                class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h4 class="text-lg font-bold mb-2">Data Analysis</h4>
+                            <p class="text-secondary text-sm">Extracting insights from complex datasets</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 theme-secondary">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold mb-8">Let's Connect</h2>
+                <p class="text-lg text-secondary mb-12">I'm always open to discussing new opportunities, interesting
+                    projects, or just having a chat about technology!</p>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <a href="mailto:utsavpal2004@gmail.com"
+                        class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                        <div
+                            class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-600 transition-colors">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                                <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Email</h3>
+                        <p class="text-secondary">utsavpal2004@gmail.com</p>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/utsav-pal/" target="_blank" rel="noopener noreferrer"
+                        class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                        <div
+                            class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-700 transition-colors">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">LinkedIn</h3>
+                        <p class="text-secondary">Professional Network</p>
+                    </a>
+
+                    <a href="https://github.com/utsav-pal" target="_blank" rel="noopener noreferrer"
+                        class="theme-card p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105 group">
+                        <div
+                            class="w-16 h-16 bg-gray-800 dark:bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-gray-900 dark:group-hover:bg-gray-500 transition-colors">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd"
+                                    d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">GitHub</h3>
+                        <p class="text-secondary">Code Repository</p>
+                    </a>
+                </div>
+
+                <div class="mt-12 theme-card p-8 rounded-lg">
+                    <h3 class="text-xl font-bold mb-4">Available for:</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-left">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Freelance Projects</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Full-time Opportunities</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Technical Consulting</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                            <span>Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="theme-secondary py-8 border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-secondary">&copy; 2025 Utsav Pal. Built with Chai and Code.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Management
+        class ThemeManager {
+            constructor() {
+                this.themes = ['light', 'dark', 'system'];
+                this.currentThemeIndex = 0;
+                this.init();
+            }
+
+            init() {
+                // Load saved theme or default to dark
+                const savedTheme = localStorage.getItem('theme') || 'dark';
+                this.currentThemeIndex = this.themes.indexOf(savedTheme);
+                if (this.currentThemeIndex === -1) this.currentThemeIndex = 1; // Default to dark
+
+                this.applyTheme();
+                this.updateUI();
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                document.getElementById('themeToggle').addEventListener('click', () => {
+                    this.cycleTheme();
+                });
+            }
+
+            cycleTheme() {
+                this.currentThemeIndex = (this.currentThemeIndex + 1) % this.themes.length;
+                this.applyTheme();
+                this.updateUI();
+                localStorage.setItem('theme', this.themes[this.currentThemeIndex]);
+            }
+
+            applyTheme() {
+                const theme = this.themes[this.currentThemeIndex];
+                const root = document.documentElement;
+
+                // Remove existing theme classes
+                root.classList.remove('dark');
+
+                if (theme === 'system') {
+                    // Use system preference
+                    const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    root.setAttribute('data-theme', systemDark ? 'dark' : 'light');
+                    if (systemDark) {
+                        root.classList.add('dark');
+                    }
+                } else {
+                    root.setAttribute('data-theme', theme);
+                    if (theme === 'dark') {
+                        root.classList.add('dark');
+                    }
+                }
+            }
+
+            updateUI() {
+                const theme = this.themes[this.currentThemeIndex];
+                const sunIcon = document.getElementById('sunIcon');
+                const moonIcon = document.getElementById('moonIcon');
+                const systemIcon = document.getElementById('systemIcon');
+                const themeLabel = document.getElementById('themeLabel');
+
+                // Hide all icons
+                [sunIcon, moonIcon, systemIcon].forEach(icon => icon.classList.add('hidden'));
+
+                // Show appropriate icon and update label
+                switch (theme) {
+                    case 'light':
+                        sunIcon.classList.remove('hidden');
+                        themeLabel.textContent = 'Light';
+                        break;
+                    case 'dark':
+                        moonIcon.classList.remove('hidden');
+                        themeLabel.textContent = 'Dark';
+                        break;
+                    case 'system':
+                        systemIcon.classList.remove('hidden');
+                        themeLabel.textContent = 'System';
+                        break;
+                }
+            }
+        }
+
+        // Mobile Menu Management
+        class MobileMenuManager {
+            constructor() {
+                this.init();
+            }
+
+            init() {
+                this.setupEventListeners();
+            }
+
+            setupEventListeners() {
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const closeMobileMenu = document.getElementById('closeMobileMenu');
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+                const mobileNavLinks = mobileMenu.querySelectorAll('a');
+
+                mobileMenuBtn.addEventListener('click', () => {
+                    this.openMenu();
+                });
+
+                closeMobileMenu.addEventListener('click', () => {
+                    this.closeMenu();
+                });
+
+                // Close menu when clicking backdrop
+                mobileMenuBackdrop.addEventListener('click', () => {
+                    this.closeMenu();
+                });
+
+                // Close menu when clicking nav links
+                mobileNavLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        this.closeMenu();
+                    });
+                });
+
+                // Close menu when pressing Escape
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                        this.closeMenu();
+                    }
+                });
+            }
+
+            openMenu() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+                mobileMenu.classList.add('open');
+                mobileMenuBackdrop.classList.add('open');
+                document.documentElement.classList.add('mobile-menu-open');
+                document.body.classList.add('mobile-menu-open');
+            }
+
+            closeMenu() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+                mobileMenu.classList.remove('open');
+                mobileMenuBackdrop.classList.remove('open');
+                document.documentElement.classList.remove('mobile-menu-open');
+                document.body.classList.remove('mobile-menu-open');
+            }
+        }
+
+        // Smooth Scrolling for Navigation Links
+        function setupSmoothScrolling() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Navigation Active State
+        function setupActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+            function updateActiveLink() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= (sectionTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('text-blue-500');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('text-blue-500');
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+            updateActiveLink(); // Call once to set initial state
+        }
+
+        // System Theme Change Listener
+        function setupSystemThemeListener() {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            const handleSystemChange = () => {
+                if (localStorage.getItem('theme') === 'system') {
+                    themeManager.applyTheme();
+                }
+            };
+
+            // Use both addEventListener and addListener for better compatibility
+            if (mediaQuery.addEventListener) {
+                mediaQuery.addEventListener('change', handleSystemChange);
+            } else {
+                mediaQuery.addListener(handleSystemChange);
+            }
+        }
+
+        // Apply initial theme before DOM loads to prevent FOUC
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const root = document.documentElement;
+
+            if (savedTheme === 'system') {
+                const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                root.setAttribute('data-theme', systemDark ? 'dark' : 'light');
+                if (systemDark) root.classList.add('dark');
+            } else {
+                root.setAttribute('data-theme', savedTheme);
+                if (savedTheme === 'dark') root.classList.add('dark');
+            }
+        })();
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            // Initialize managers
+            window.themeManager = new ThemeManager();
+            window.mobileMenuManager = new MobileMenuManager();
+
+            // Setup additional features
+            setupSmoothScrolling();
+            setupActiveNavigation();
+            setupSystemThemeListener();
+
+            console.log('Portfolio initialized successfully!');
+        });
+
+        // Add loading animation completion
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+
+</html>
